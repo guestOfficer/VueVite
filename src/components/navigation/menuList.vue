@@ -14,7 +14,7 @@ const props = defineProps({
     :collapse="isCollapse"
     router
   >
-    <el-menu-item :index="item.path" v-for="item in list" :key="item.name" to>
+    <el-menu-item :index="item.path" v-for="item in list" :key="item.name">
       <el-icon>
         <!-- <component :is="item.meta.icon" /> -->
         <User />
