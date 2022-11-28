@@ -59,7 +59,7 @@ const selectSize = (size: string) => {
   height: 100%;
 }
 .el-aside {
-  background: red;
+background: linear-gradient(to bottom, #ff9569 0%, #e92758 100%);
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;

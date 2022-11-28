@@ -14,4 +14,12 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
   ],
+  server: {
+    hmr: {
+      overlay: false,
+    },
+    port: 3000,
+    // 是否开启 https
+    https: false,
+  },
 });
