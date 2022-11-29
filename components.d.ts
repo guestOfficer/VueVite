@@ -21,17 +21,11 @@ declare module '@vue/runtime-core' {
     ElMain: typeof import('element-plus/es')['ElMain']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
-    ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
-    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     FoneSize: typeof import('./src/components/function/foneSize.vue')['default']
     FullScreen: typeof import('./src/components/function/fullScreen.vue')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     LanguageSelector: typeof import('./src/components/function/languageSelector.vue')['default']
-    Left: typeof import('./src/components/navigation/left.vue')['default']
-    Menu: typeof import('./src/components/navigation/menu.vue')['default']
     MenuList: typeof import('./src/components/navigation/menuList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Switch: typeof import('./src/components/function/switch.vue')['default']
   }
 }

@@ -14,6 +14,14 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      less: {
+        charset: false,
+        additionalData: '@import "./src/css/base.less";',
+      },
+    },
+  },
   server: {
     hmr: {
       overlay: false,
