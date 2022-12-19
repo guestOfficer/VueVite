@@ -22,6 +22,7 @@ const form = ref({})
   </div>
 </template>
 <style scoped lang="less">
+
 .login {
   width: 100%;
   height: 100vh;
@@ -29,6 +30,7 @@ const form = ref({})
   display: flex;
   justify-content: center;
   align-items: center;
+  
   .video {
     position: absolute;
     width: 100vw;

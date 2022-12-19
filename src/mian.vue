@@ -41,7 +41,6 @@ const selectSize = (size: string) => {
             </div>
           </el-header>
           <el-main>
-            
             <router-view></router-view>
           </el-main>
         </el-container>

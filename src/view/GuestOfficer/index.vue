@@ -17,7 +17,6 @@ import { Virtual } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { ref } from "vue";
 import Tesseract from 'tesseract.js';
-
 Tesseract.recognize(
   'https://tesseract.projectnaptha.com/img/eng_bw.png',
   'eng',

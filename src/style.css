@@ -12,3 +12,12 @@ body {
 .small {
   font: 14px !important;
 }
+input{
+  border: 0;
+  height: 90%;
+  width: 94%;
+  font-size: 20px;
+  text-indent: 12px;
+}
+
+input:focus{ outline:none; }
