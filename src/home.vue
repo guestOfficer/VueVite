@@ -1,5 +1,4 @@
 <template>
-
   <div class="home">
     <div class="title">米奇不妙屋</div>
     <div class="msgList">
@@ -14,6 +13,7 @@
           src="./assets/avatar.jpg"
         />
         <span class="message"> {{ item }}</span>
+
         <img
           class="avatarAi"
           v-if="(index + 1) % 2 == 0"
@@ -22,7 +22,9 @@
       </div>
       <div v-if="loading">
         <div class="right">
-          <span class="message">加载中.....</span>
+          <span class="message">
+            <img class="loading" src="./assets/loading.webp" alt="">
+          </span>
           <img class="avatarAi" src="./assets/avatarAi.jpg" />
         </div>
       </div>
@@ -41,6 +43,7 @@ const loading = ref(false);
 const msg = ref("");
 const msgList: string[] = reactive([]);
 const send = async () => {
+  if (msg.value === "") return;
   loading.value = true;
   let form = {
     prompt: msg.value,
@@ -56,7 +59,7 @@ const send = async () => {
 .home {
   box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
   padding: 10px;
-  .title{
+  .title {
     font-size: 26px;
     text-align: center;
   }
@@ -65,10 +68,13 @@ const send = async () => {
     margin: 10px auto;
     padding: 10px;
     .message {
-      background: linear-gradient(to bottom, #ff9569 0%, #e92758 100%);
+      background: #66ccff;
       color: #fff;
       padding: 10px;
       border-radius: 8px;
+      .loading{
+        width: 40px;
+      }
     }
     .avatar {
       width: 40px;
