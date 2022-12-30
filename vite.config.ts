@@ -26,7 +26,7 @@ export default defineConfig({
     hmr: {
       overlay: false,
     },
-    port: 3000,
+    port: 3001,
     // 是否开启 https
     https: false,
   },
