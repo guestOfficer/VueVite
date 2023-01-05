@@ -22,8 +22,6 @@ const submitForm = async (formEl: FormInstance | undefined) => {
       const { data } = await serve.add(form);
       if (data.msg != "0") return;
       ElMessage.success("注册成功！");
-    } else {
-      console.log("error submit!", fields);
     }
   });
 };
@@ -31,18 +29,8 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 
 <template>
   <div class="login">
-    <!-- <img class="loginBack" src=""> -->
-    <!-- <video
-      class="video"
-      :muted="true"
-      :loop="true"
-      :autoplay="true"
-      width="100%"
-      height="100%"
-      src="./assets/d51a96a0f6215e5a08e30ad11b35ff44_preview.mp4"
-    ></video> -->
     <div class="loginBox">
-      <div class="login-title">登陆</div>
+      <div class="login-title">注册</div>
       <div class="form">
         <el-form :model="form" :rules="rules" ref="ruleFormRef">
           <el-form-item prop="name">
@@ -54,12 +42,12 @@ const submitForm = async (formEl: FormInstance | undefined) => {
           <el-form-item>
             <div class="loginButton">
               <el-button type="primary" @click="submitForm(ruleFormRef)">
-                登陆
+                注册
               </el-button>
             </div>
             <div class="loginButton" size="mini">
-              <el-link type="primary" @click="router.push('/add')"
-                >注册一个</el-link
+              <el-link type="primary" @click="router.push('/login')"
+                >去登陆</el-link
               >
             </div>
           </el-form-item>

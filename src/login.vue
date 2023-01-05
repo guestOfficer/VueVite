@@ -4,6 +4,7 @@ import type { FormInstance, FormRules } from "element-plus";
 import { ElMessage } from "element-plus";
 import { useRouter } from "vue-router";
 import { user } from "./stores/user";
+import Cookies from "js-cookie";
 const router = useRouter();
 const ruleFormRef = ref<FormInstance>();
 const serve = user();
@@ -15,16 +16,18 @@ const rules = reactive<FormRules>({
   name: [{ required: true, message: "请输入用户名", trigger: "blur" }],
   password: [{ required: true, message: "请输入密码", trigger: "blur" }],
 });
+interface Login {
+  msg: string;
+}
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   await formEl.validate(async (valid, fields) => {
     if (valid) {
-      const { data } = await serve.add(form);
+      const data: any = await serve.login(form);
       if (data.msg != "0") return;
-      ElMessage.success("注册成功！");
-    } else {
-      console.log("error submit!", fields);
-    }
+      Cookies.set("token", data.token);
+      ElMessage.success("登陆成功！");
+    } 
   });
 };
 </script>
