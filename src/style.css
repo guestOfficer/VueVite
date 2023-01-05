@@ -1,23 +1,4 @@
-body {
+body,html {
   margin: 0;
   padding: 0;
 }
-.large {
-  font: 26px !important;
-}
-.default {
-  font: 16px !important;
-}
-
-.small {
-  font: 14px !important;
-}
-input{
-  border: 0;
-  height: 90%;
-  width: 94%;
-  font-size: 20px;
-  text-indent: 12px;
-}
-
-input:focus{ outline:none; }

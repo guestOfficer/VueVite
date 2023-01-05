@@ -18,16 +18,18 @@ const rules = reactive<FormRules>({
 });
 interface Login {
   msg: string;
+  token:string
 }
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   await formEl.validate(async (valid, fields) => {
     if (valid) {
-      const data: any = await serve.login(form);
+      const data:Login = await serve.login(form);
       if (data.msg != "0") return;
       Cookies.set("token", data.token);
       ElMessage.success("登陆成功！");
-    } 
+      router.push("/");
+    }
   });
 };
 </script>
@@ -52,7 +54,11 @@ const submitForm = async (formEl: FormInstance | undefined) => {
             <el-input v-model="form.name" placeholder="用户名" />
           </el-form-item>
           <el-form-item prop="password">
-            <el-input v-model="form.password" placeholder="密码" />
+            <el-input
+              v-model="form.password"
+              placeholder="密码"
+              @keydown.enter="submitForm(ruleFormRef)"
+            />
           </el-form-item>
           <el-form-item>
             <div class="loginButton">

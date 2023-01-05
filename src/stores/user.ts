@@ -1,28 +1,26 @@
 import { defineStore } from "pinia";
 import { api } from "../http/index";
 import { config } from "../config/index";
-interface UserData {
-  name: string;
-  password:string,
+
+declare namespace Service {
+  interface userData {
+    name: string;
+    password: string;
+  }
 }
 
+const serve = new api();
 export const user = defineStore("store", {
   state: () => {
     return {};
   },
   getters: {},
   actions: {
-    async login(data: UserData) {
-      const serve = new api();
+    async login(data: Service.userData): Promise<any> {
       return await serve.post(config.baseUrl + config.login, data);
     },
-    async add(data: UserData) {
-        const serve = new api();
-        return await serve.post(config.baseUrl + config.add, data);
-      },
+    async add(data: Service.userData) {
+      return await serve.post(config.baseUrl + config.add, data);
+    },
   },
 });
-
-
-
-
