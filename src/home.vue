@@ -3,7 +3,7 @@
 </script>
 <template>
   <div class="box">
-    <img src="./assets/view.png" alt="">
+    <!-- <img src="./assets/view.png" alt=""> -->
   </div>
 </template>
 
