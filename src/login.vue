@@ -3,6 +3,8 @@ import { ref, reactive } from "vue";
 import { user } from "./stores/user";
 import { ElNotification } from "element-plus";
 import Cookies from "js-cookie";
+import { useRouter } from "vue-router";
+const router = useRouter()
 const serve = user();
 const str = ref("");
 const num = ref(0);
@@ -23,9 +25,9 @@ const image = reactive([
 ]);
 
 interface form {
-  name: string | boolean;
+  name?: string | boolean;
   password: string | boolean;
-  email?: string | boolean;
+  email: string | boolean;
 }
 let form: form = reactive({
   name: "",
@@ -57,11 +59,13 @@ const submitLogin = async () => {
   if (data.msg != 0) return;
   ElNotification.success(data.message);
   Cookies.set("token", data.token);
+  router.push('/')
 };
 const submitAdd = async () => {
   const { data } = await serve.add(form);
   if (data.msg != 0) return
   ElNotification.success(data.message)
+  str.value = '';
 };
 </script>
 <template>
@@ -83,10 +87,10 @@ const submitAdd = async () => {
 
             <div class="actual-form">
               <div class="input-wrap">
-                <input type="text" minlength="4" class="input-field" @focus="classForm.name = true"
-                  @blur="classForm.name = form.name == '' ? false : true" v-model="form.name"
-                  :class="classForm.name ? 'active' : ''" @keyup.enter="submitLogin" />
-                <label>Name</label>
+                <input type="text" minlength="4" class="input-field" @focus="classForm.email = true"
+                  @blur="classForm.email = form.email == '' ? false : true" v-model="form.email"
+                  :class="classForm.email ? 'active' : ''" @keyup.enter="submitLogin" />
+                <label>Email</label>
               </div>
 
               <div class="input-wrap">

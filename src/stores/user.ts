@@ -4,9 +4,9 @@ import { config } from "../config/index";
 
 declare namespace Service {
   interface userData {
-    name: string | boolean;
+    name?: string | boolean;
     password: string | boolean;
-    email?: string | boolean;
+    email: string | boolean;
   }
 }
 
